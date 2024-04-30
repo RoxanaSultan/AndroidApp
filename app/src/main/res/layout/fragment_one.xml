@@ -1,0 +1,16 @@
+<!-- This is your fragment_one.xml file in the res/layout directory -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="FragmentOne">
+
+    <!-- RecyclerView to display the list of animals -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/animal_list_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:scrollbars="vertical" />
+
+</FrameLayout>

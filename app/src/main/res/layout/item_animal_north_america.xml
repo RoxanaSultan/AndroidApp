@@ -1,0 +1,28 @@
+<!-- This is your animal_item.xml file in the res/layout directory -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/north_america"
+    android:elevation="4dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView for the Animal Name -->
+    <TextView
+        android:id="@+id/tv_animal_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+
+    <!-- TextView for the Continent -->
+    <TextView
+        android:id="@+id/tv_animal_continent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+</LinearLayout>
