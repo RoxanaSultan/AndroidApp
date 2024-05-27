@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, FragmentOne())
             .commit()
 
-        val closeButton: Button = findViewById(R.id.btn_close)
-        closeButton.setOnClickListener {
-            finish()
-        }
+//        val closeButton: Button = findViewById(R.id.btn_close)
+//        closeButton.setOnClickListener {
+//            finish()
+//        }
     }
 
     override fun onStart() {
