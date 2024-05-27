@@ -1,5 +1,0 @@
-<!-- res/drawable/background_europe.xml -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/blue"/>
-    <corners android:radius="30dp"/>
-</shape>
