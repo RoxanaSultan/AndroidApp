@@ -71,7 +71,6 @@ class FragmentOne : Fragment() {
     private lateinit var nameEditText: EditText
     private lateinit var continentEditText: EditText
     private lateinit var addButton: Button
-    private lateinit var deleteButton: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
