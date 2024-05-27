@@ -6,6 +6,7 @@
     tools:context="FragmentOne">
 
     <EditText
+        android:id="@+id/edit_text_name"
         android:hint="Name of an Animal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,19 +20,21 @@
         />
 
     <EditText
+        android:id="@+id/edit_text_continent"
         android:hint="Continent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:gravity="top"
         android:padding="16dp"
-        android:background="@drawable/edit_text"
+        android:background="@drawable/button_background"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         />
 
-    <Button
+    <android.widget.Button
+        android:id="@+id/add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add"
@@ -39,7 +42,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/edit_text"
+        android:background="@drawable/button_background"
+        android:textColor="@drawable/foreground_color"
         />
 
     <!-- RecyclerView to display the list of animals -->

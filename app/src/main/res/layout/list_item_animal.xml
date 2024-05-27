@@ -37,6 +37,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/delete_button"
             android:layout_width="59dp"
             android:layout_height="78dp"
             android:layout_gravity="right"
