@@ -1,16 +1,54 @@
-<!-- This is your fragment_one.xml file in the res/layout directory -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="FragmentOne">
+
+    <EditText
+        android:hint="Name of an Animal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="top"
+        android:padding="16dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <EditText
+        android:hint="Continent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="top"
+        android:padding="16dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/edit_text"
+        />
 
     <!-- RecyclerView to display the list of animals -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/animal_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="16dp"
         android:scrollbars="vertical" />
 
-</FrameLayout>
+</LinearLayout>

@@ -3,6 +3,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.cstacademy2024.R
 import com.cst.cstacademy2024.models.Animal
@@ -42,7 +43,7 @@ class AnimalListAdapter(private val animals: List<Animal>) :
         fun bind(animal: Animal) {
             val layoutResourceId = getLayoutResourceForContinent(animal.continent)
             val inflater = LayoutInflater.from(itemView.context)
-            val layout = inflater.inflate(layoutResourceId, null) as LinearLayout
+            val layout = inflater.inflate(layoutResourceId, null) as CardView
 
             // Find text views in the inflated layout
             val nameTextView: TextView = layout.findViewById(R.id.tv_animal_name)
@@ -53,23 +54,15 @@ class AnimalListAdapter(private val animals: List<Animal>) :
             continentTextView.text = animal.continent
 
             // Remove all views from the item's LinearLayout and add the inflated layout
-            (itemView as LinearLayout).removeAllViews()
-            (itemView as LinearLayout).addView(layout)
+            (itemView as CardView).removeAllViews()
+            (itemView as CardView).addView(layout)
         }
 
 
         private fun getLayoutResourceForContinent(continent: String): Int {
-            return when (continent) {
-                "Europe" -> R.layout.item_animal_europe
-                "Africa" -> R.layout.item_animal_africa
-                "Asia" -> R.layout.item_animal_asia
-                "North America" -> R.layout.item_animal_north_america
-                "South America" -> R.layout.item_animal_south_america
-                "Australia" -> R.layout.item_animal_australia
-                "Antarctic" -> R.layout.item_animal_antarctica
-                else -> R.layout.item_animal_europe
-            }
+            return R.layout.list_item_animal
         }
+
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
