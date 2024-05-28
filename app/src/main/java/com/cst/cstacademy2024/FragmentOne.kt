@@ -64,8 +64,8 @@ class FragmentOne : Fragment() {
 
         // Button click listener
         addButton.setOnClickListener {
-            val animalName = nameEditText.text.toString().trim()
-            val continent = continentEditText.text.toString().trim()
+            val animalName = capitalizeEachWord(nameEditText.text.toString().trim())
+            val continent = capitalizeEachWord(continentEditText.text.toString().trim())
 
             if (animalName.isEmpty() || continent.isEmpty()) {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT)
@@ -91,7 +91,7 @@ class FragmentOne : Fragment() {
                 "North America",
                 "South America",
                 "Australia",
-                "Antarctica"
+                "Antarctic"
             )
             // Check if the entered continent is valid
             val continentExists = validContinents.any { it.equals(continent, ignoreCase = true) }
@@ -113,7 +113,9 @@ class FragmentOne : Fragment() {
             nameEditText.text.clear()
             continentEditText.text.clear()
         }
-
-
+    }
+    // Utility function to capitalize each word in a string
+    private fun capitalizeEachWord(input: String): String {
+        return input.split(" ").map { it.capitalize() }.joinToString(" ")
     }
 }
