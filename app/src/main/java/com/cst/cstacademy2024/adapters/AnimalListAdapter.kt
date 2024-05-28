@@ -2,17 +2,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.cstacademy2024.R
 import com.cst.cstacademy2024.models.Animal
 
-class AnimalListAdapter(private val animals: MutableList<Animal>) :
+class AnimalListAdapter(private var animals: List<Animal> = emptyList()) :
     RecyclerView.Adapter<AnimalListAdapter.AnimalViewHolder>() {
 
     interface OnItemClickListener {
+        fun onDeleteClick(animal: Animal)
         fun onItemClick(animal: Animal)
     }
 
@@ -20,6 +19,11 @@ class AnimalListAdapter(private val animals: MutableList<Animal>) :
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.itemClickListener = listener
+    }
+
+    fun updateList(newAnimals: List<Animal>) {
+        animals = newAnimals
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
@@ -42,8 +46,8 @@ class AnimalListAdapter(private val animals: MutableList<Animal>) :
             deleteButton.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    animals.removeAt(position)
-                    notifyItemRemoved(position)
+                    val animal = animals[position]
+                    itemClickListener?.onDeleteClick(animal)
                 }
             }
 
