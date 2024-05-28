@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cst.cstacademy2024.R
 import com.cst.cstacademy2024.models.Animal
 
-class AnimalListAdapter(private var animals: List<Animal> = emptyList()) :
+class AnimalListAdapter(var animals: List<Animal> = emptyList()) :
     RecyclerView.Adapter<AnimalListAdapter.AnimalViewHolder>() {
 
     interface OnItemClickListener {

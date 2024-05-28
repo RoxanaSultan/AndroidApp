@@ -68,16 +68,52 @@ class FragmentOne : Fragment() {
             val continent = continentEditText.text.toString().trim()
 
             if (animalName.isEmpty() || continent.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
-            val newAnimal = Animal(name = animalName.capitalize(), continent = continent.capitalize())
+            val animalExists = adapter.animals.any { it.name.equals(animalName, ignoreCase = true) }
+            if (animalExists) {
+                Toast.makeText(
+                    requireContext(),
+                    "Animal '$animalName' already exists",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            // Define valid continents
+            val validContinents = listOf(
+                "Europe",
+                "Africa",
+                "Asia",
+                "North America",
+                "South America",
+                "Australia",
+                "Antarctica"
+            )
+            // Check if the entered continent is valid
+            val continentExists = validContinents.any { it.equals(continent, ignoreCase = true) }
+            if (!continentExists) {
+                Toast.makeText(
+                    requireContext(),
+                    "Continent '$continent' doesn't exist",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            // If both animal and continent are valid, proceed with adding the animal
+            val newAnimal =
+                Animal(name = animalName.capitalize(), continent = continent.capitalize())
             animalVM.addAnimal(newAnimal.name, newAnimal.continent)
 
             // Clear EditTexts
             nameEditText.text.clear()
             continentEditText.text.clear()
         }
+
+
     }
 }
